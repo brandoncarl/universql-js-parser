@@ -1,0 +1,23 @@
+{
+  "name": "universql-parser",
+  "version": "0.3.0",
+  "description": "Universal database query language",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brandoncarl/universql-js-parser.git"
+  },
+  "keywords": [
+    "query"
+  ],
+  "author": "Brandon Carl (http://www.brandoncarl.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandoncarl/universql-js-parser/issues"
+  },
+  "homepage": "https://github.com/brandoncarl/universql-js-parser#readme",
+  "dependencies": {}
+}
