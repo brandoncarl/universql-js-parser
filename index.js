@@ -142,7 +142,11 @@ Query.prototype.parseFilter = function(step) {
 
   // If there are no operands, this must be an execution statement
   if (!step.operands) {
-    if (Object.keys(step).length) this.filters.push(step);
+    if (Object.keys(step).length) {
+      if (step.value && step.value.type === 'literal')
+        step.value = step.value.value;
+      this.filters.push(step);
+    }
     return;
   }
 
