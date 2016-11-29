@@ -1,4 +1,4 @@
-// Universql Grammar v0.3.0
+// Universql Grammar v0.3.1
 
 Query
   = (FindQuery / InsertQuery / UpdateQuery / DeleteQuery)
@@ -116,7 +116,7 @@ Filters
 OrTerm
   = head:AndTerm tail:(_? OrOperator _? AndTerm)* {
     if (tail.length) {
-      return { operator : "|", operands: [head].concat(tail.map(function(x) { return x[1]; })) };
+      return { operator : "|", operands: [head].concat(tail.map(function(x) { return x[3]; })) };
     } else {
       return head;
     }
@@ -125,7 +125,7 @@ OrTerm
 AndTerm
   = head:Term tail:(_? AndOperator _? Term)* {
     if (tail.length) {
-      return { operator : "&", operands: [head].concat(tail.map(function(x) { return x[1]; })) };
+      return { operator : "&", operands: [head].concat(tail.map(function(x) { return x[3]; })) };
     } else {
       return head;
     }
@@ -434,3 +434,4 @@ unescaped      = [^\0-\x1F\x22\x5C]
 /* See RFC 4234, Appendix B (http://tools.ietf.org/html/rfc4627). */
 DIGIT  = [0-9]
 HEXDIG = [0-9a-f]i
+
