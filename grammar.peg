@@ -1,4 +1,4 @@
-// Universql Grammar v0.3.3
+// Universql Grammar v0.3.4
 
 Query
   = (FindQuery / InsertQuery / UpdateQuery / DeleteQuery)
@@ -252,7 +252,7 @@ Name
   = Key / string
 
 Key
-  = [a-zA-Z_@#][0-9a-zA-Z_@#$]* { return text(); }
+  = [a-zA-Z_@#]("."?[0-9a-zA-Z_@#$])* { return text(); }
 
 PositiveInteger
   = [0-9]+ { return parseInt(text(), 10); }
