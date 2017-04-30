@@ -1,4 +1,4 @@
-// Universql Grammar v0.3.4
+// Universql Grammar v0.3.1
 
 Query
   = (FindQuery / InsertQuery / UpdateQuery / DeleteQuery)
@@ -170,7 +170,7 @@ Comparator
   = ("=" / "<=" / "<" / ">=" / ">" / "!=" / "?=" / "?") { return text(); }
 
 Value
-  = ArrayValue / ListValue / RegexValue / LiteralValue
+  = ArrayValue / ListValue / RegexValue / LiteralValue / Variable
 
 ArrayValue
   = "[" head:LiteralValue tail:("," " "? LiteralValue)* "]" {
@@ -249,7 +249,10 @@ OrOperator
 **/
 
 Name
-  = Key / string
+  = Key / Variable / string
+
+Variable
+  = "{{" " "? Key " "? "}}"
 
 Key
   = [a-zA-Z_@#]("."?[0-9a-zA-Z_@#$])* { return text(); }
