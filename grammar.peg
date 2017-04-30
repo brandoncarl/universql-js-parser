@@ -1,4 +1,4 @@
-// Universql Grammar v0.3.2
+// Universql Grammar v0.3.3
 
 Query
   = (FindQuery / InsertQuery / UpdateQuery / DeleteQuery)
