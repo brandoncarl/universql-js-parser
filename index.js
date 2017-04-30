@@ -43,7 +43,7 @@ var Query = function(str) {
 
   // Parse options and filters
   this.parseOptions(query.options);
-  this.parseFilters(query.filters);
+  this.parseFilters(query.filters || []);
 
 };
 
@@ -109,8 +109,10 @@ Query.prototype.parseFilters = function(filters) {
   // Initialize
   this.filters = [];
 
-  // Start recursive calls     
-  this.parseFilter(filters || {});
+  // Start recursive calls
+  while (filters.length) {
+    this.parseFilter(filters.shift() || []);
+  }
 
   // Reverse (into Revere Polish Notation)
   this.filters = this.filters.reverse();
