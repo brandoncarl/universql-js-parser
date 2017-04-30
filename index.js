@@ -67,24 +67,12 @@ Query.prototype.parseOptions = function(options) {
   // Walk through options. Each option is of format {key, value}
   for (var i = 0, n = options.length; i < n; i++) {
 
-    key = options[i].key;
+    key = options[i].type;
     val = options[i].value;
 
     switch (key) {
       case "sort":
-
-        // Add leading "+" if missing
-        if ("+" !== val[0] && "-" !== val[0]) val = "+" + val;
-
-        // Return all matches
-        match = val.match(/([\+\-])([^\+\-]+)/g);
-
-        // Set sorts (this will throw error if malformed, which we want)
-        this.sort = new Array(match.length);
-        for (var j = 0, m = match.length; j < m; j++) {
-          this.sort[j] = { key : match[j].slice(1), order : ("-" === match[j][0]) ? "desc" : "asc" };
-        }
-
+        this.sort = val;
         break;
       case "limit":
         this.limit = parseInt(val);
@@ -95,7 +83,7 @@ Query.prototype.parseOptions = function(options) {
         if (isNaN(this.skip)) this.skip = val;
         break;
       default:
-        throw new Error("Unknown option in query:", key);
+        throw new Error("Unknown option in query: " + key);
     }
   }
 
