@@ -1,6 +1,6 @@
 {
   "name": "universql-parser",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Universal database query language",
   "main": "index.js",
   "scripts": {
