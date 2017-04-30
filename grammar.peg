@@ -1,4 +1,4 @@
-// Universql Grammar v0.3.1
+// Universql Grammar v0.3.2
 
 Query
   = (FindQuery / InsertQuery / UpdateQuery / DeleteQuery)
@@ -66,7 +66,7 @@ Options
   = "[" options:Option+ "]" { return options; }
 
 Option
-  = SortModifier / LimitModifier / SkipModifier
+  = option:(SortModifier / LimitModifier / SkipModifier) ("," " "*)? { return option; }
 
 SortModifier
   = "sort" " "? "=" " "? sorts:Sort+ {
@@ -434,4 +434,3 @@ unescaped      = [^\0-\x1F\x22\x5C]
 /* See RFC 4234, Appendix B (http://tools.ietf.org/html/rfc4627). */
 DIGIT  = [0-9]
 HEXDIG = [0-9a-f]i
-
