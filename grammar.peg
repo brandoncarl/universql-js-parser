@@ -255,7 +255,7 @@ Variable
   = "{{" " "? Key " "? "}}"
 
 Key
-  = [a-zA-Z_@#]("."?[0-9a-zA-Z_@#$])* { return text(); }
+  = [a-zA-Z_@#$]("."?[0-9a-zA-Z_@#$])* { return text(); }
 
 PositiveInteger
   = [0-9]+ { return parseInt(text(), 10); }
