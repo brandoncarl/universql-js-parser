@@ -43,7 +43,7 @@ var Query = function(str) {
 
   // Parse options and filters
   this.parseOptions(query.options);
-  this.parseFilters(query.filters[0]);
+  this.parseFilters(query.filters);
 
 };
 
