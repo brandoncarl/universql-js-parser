@@ -2445,7 +2445,8 @@ module.exports = /*
                 if (peg$silentFails === 0) { peg$fail(peg$c94); }
               }
               if (s5 !== peg$FAILED) {
-                s1 = [s1, s2, s3, s4, s5];
+                peg$savedPos = s0;
+                s1 = peg$c16();
                 s0 = s1;
               } else {
                 peg$currPos = s0;

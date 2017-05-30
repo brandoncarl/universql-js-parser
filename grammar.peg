@@ -252,7 +252,7 @@ Name
   = Key / Variable / string
 
 Variable
-  = "{{" " "? Key " "? "}}"
+  = "{{" " "? Key " "? "}}" { return text(); }
 
 Key
   = [a-zA-Z_@#$]("."?[0-9a-zA-Z_@#$])* { return text(); }
